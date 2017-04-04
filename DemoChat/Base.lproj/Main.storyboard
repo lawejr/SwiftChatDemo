@@ -52,7 +52,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aWW-Y9-8Hh"/>
+                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3B5-jE-URl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZg-0j-XLq">
@@ -63,7 +63,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Создать аккаунт"/>
                                 <connections>
-                                    <action selector="createAccButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aCw-md-XkT"/>
                                     <segue destination="Hv0-fD-TvI" kind="show" id="ye2-cX-wiZ"/>
                                 </connections>
                             </button>
@@ -85,7 +84,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Вход" id="YV8-lP-1Xl"/>
                     <connections>
-                        <outlet property="createAccButtonPressed" destination="HZg-0j-XLq" id="UaC-lF-2Be"/>
                         <outlet property="loginTextField" destination="sZO-zf-jHJ" id="zsY-Md-tNC"/>
                         <outlet property="passwordTextField" destination="frp-2w-0UK" id="7bM-VP-e1j"/>
                     </connections>
@@ -142,11 +140,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
-                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HW2-hJ-8iF">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HW2-hJ-8iF">
                                 <rect key="frame" x="62.5" y="300" width="194" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4zB-H8-L9i">
                                 <rect key="frame" x="62.5" y="349" width="194" height="30"/>

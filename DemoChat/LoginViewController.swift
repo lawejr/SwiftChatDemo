@@ -16,9 +16,6 @@ class LoginViewController: UIViewController {
   @IBAction func loginButtonPressed(_ sender: UIButton) {
   }
   
-  @IBAction func createAccButtonPressed(_ sender: UIButton) {
-  }
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
