@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
   
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var loginTextField: UITextField!
@@ -37,6 +37,44 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     picker.dismiss(animated: true, completion: nil)
   }
   
+  // Двигаем вверх основной view при открытии клавиатуры
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    let mainViewHeigh = self.view.bounds.height
+    let mainViewWidth = self.view.bounds.width
+    
+    // Пример из демки проверяется конкретное значение высоты устройства и экран поднимается на разную высоту, не очень хороший подход. Поискать другое решение
+    UIView.animate(withDuration: 0.3) {
+      if UIScreen.main.bounds.height > 568 {
+        self.view.center = CGPoint(x: mainViewWidth / 2, y: mainViewHeigh / 2 - 60)
+      }
+    }
+  }
+  
+  func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+    let mainViewHeigh = self.view.bounds.height
+    let mainViewWidth = self.view.bounds.width
+    
+    UIView.animate(withDuration: 0.3) {
+      if UIScreen.main.bounds.height > 568 {
+        self.view.center = CGPoint(x: mainViewWidth / 2, y: mainViewHeigh / 2)
+      }
+    }
+    
+  }
+  
+  // Прячем клавиатуру по нажатию return
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    emailTextField.resignFirstResponder()
+    passwordTextField.resignFirstResponder()
+    loginTextField.resignFirstResponder()
+    
+    return true
+  }
+  
+  // Прячем клавиатуру по нажатию вне поля
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    self.view.endEditing(true)
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
